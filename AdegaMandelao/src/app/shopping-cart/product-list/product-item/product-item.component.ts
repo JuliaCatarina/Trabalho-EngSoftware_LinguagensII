@@ -9,7 +9,7 @@ import { Produto } from 'src/app/produto.model';
 })
 export class ProductItemComponent implements OnInit {
 
-  dogeProduto = new Produto("1",50,"Doge de óculos. wow.","Doge","https://i.pinimg.com/236x/55/54/01/5554015289d6345c8ad5a47c8aa764d6.jpg",20)
+  dogeProduto = new Produto("1",50,"Doge de óculos. wow.","Doge","https://i.pinimg.com/236x/55/54/01/5554015289d6345c8ad5a47c8aa764d6.jpg",20,553)
 
   constructor(private cartService:CartServiceService) { }
 

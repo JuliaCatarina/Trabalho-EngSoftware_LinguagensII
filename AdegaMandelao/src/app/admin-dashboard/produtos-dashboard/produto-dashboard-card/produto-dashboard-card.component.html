@@ -1,0 +1,22 @@
+<div class="card-body">
+    <div class="row no-gutters">
+        <div class="col-md-2 d-flex my-auto">
+            <img [src]="dogeProduto.foto" alt="" id="cardImageSize">
+        </div>
+        <div class="col-md-2 my-auto">
+            <h5 class="card-title">{{dogeProduto.nome}}</h5>
+        </div>
+        <div class="col-md-2 my-auto">
+            <p class="card-text">{{ dogeProduto.preco | currency:'BRL' }}</p>
+        </div>
+        <div class="col-md-2 my-auto">
+            <p class="card-text">{{dogeProduto.quantidade}}</p>
+        </div>
+        <div class="col-md-2 my-auto">
+            <p class="card-text">{{dogeProduto.vendido}}</p>
+        </div>
+        <div class="col-md-2 my-auto">
+            <a href="#" class="btn btn-primary">Ir para Página do produto</a>
+        </div>
+    </div>
+</div>

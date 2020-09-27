@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -17,6 +16,10 @@ import { CartComponent } from './shopping-cart/cart/cart.component';
 import { CartItemComponent } from './shopping-cart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './shopping-cart/product-list/product-item/product-item.component';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ProdutosDashboardComponent } from './admin-dashboard/produtos-dashboard/produtos-dashboard.component';
+import { ProdutoDashboardCardComponent } from './admin-dashboard/produtos-dashboard/produto-dashboard-card/produto-dashboard-card.component';
+
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { ProdutosComponent } from './produtos/produtos.component';
     CartComponent,
     CartItemComponent,
     ProductItemComponent,
-    ProdutosComponent
+    ProdutosComponent,
+    AdminDashboardComponent,
+    ProdutosDashboardComponent,
+    ProdutoDashboardCardComponent
   ],
   imports: [
     FormsModule,
