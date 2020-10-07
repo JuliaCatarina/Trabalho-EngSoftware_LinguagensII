@@ -1,7 +1,7 @@
-const express = require('express');
-const bodyparser = require('body-parser');
+import express from 'express';
+import bodyparser from 'body-parser';
 
-const usersRoute = require('./routes/users');
+import { usersRouter } from './routes/users'
 
 const app = express();
 
@@ -22,6 +22,6 @@ app.use((req,res,next) => {
 });
 
 
-app.use('/api/users', usersRoute);
+app.use('/api/users', usersRouter);
 
-module.exports = app;
+export { app };

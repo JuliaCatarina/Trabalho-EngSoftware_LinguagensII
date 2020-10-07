@@ -1,20 +1,24 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const jwt = require("jsonwebtoken");
+import { Router } from 'express';
+import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken";
 // const authguard = require('../middleware/auth-guard')
 
-const router = express.Router();
+const router = Router();
 
 
 router.post('/signup',(req,res,next) => {
   bcrypt.hash(req.body.password, 10).then((hash)=> {
     // guardar no banco de dado email + hash da senha
     res.status(201).json({
-      message:"Usuario criado com successo"
+      message:"Usuario criado com successo",
+    })
+  }, (reason) => {
+    res.status(401).json({
+      message: "Failed Signing Up",
     })
   }).catch((err) => {
     res.status(401).json({
-      message: "Failed Signing Up"
+      message: "Failed Signing Up",
     })
   })
 })
@@ -26,8 +30,6 @@ router.post('/login', (req,res,next) => {
         if (!result){
           res.status(401).json({
             message : "Authentication failed.",
-            password : req.body.password,
-            user : object
           })
         }
 
@@ -49,8 +51,8 @@ router.post('/login', (req,res,next) => {
       });
 });
 
-validated_users = [
+let validated_users = [
   {email: 'tabaco@tbc.com', password:'$2b$10$9p4cZfvjNylvc9VOWkr87u2Qeq7DvgVwHQEsm/1v12eVve./9hdW.'}
 ]
 
-module.exports = router;
+export { router as usersRouter };
