@@ -24,7 +24,7 @@ class User extends Model<UserAttributes, UserCreationAttributes>
   readonly updatedAt!: Date;
 }
 
-const UserSchema = User.init( 
+User.init( 
 {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,
@@ -50,7 +50,6 @@ const UserSchema = User.init(
   tableName: "user",
   sequelize,
 });
-
 
 User.sync()
   // .then( model => {console.log(model + "sincronizado");})

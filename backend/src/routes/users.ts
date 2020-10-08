@@ -2,12 +2,10 @@ import { Router } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 
-import { connection } from "../dbconnection";
 import { User } from '../models/user';
 
 
 const router = Router();
-
 router.post('/signup', (req,res,next) => {
   bcrypt.hash(req.body.password, 10)
   .then((hash) =>
@@ -25,13 +23,11 @@ router.post('/signup', (req,res,next) => {
     res.status(201).json({
       message:"Usuario criado com successo",
     })
-  }, (reason) => {
+  }, 
+  //Hash error
+  (reason) => {
     console.log(reason); 
 
-    res.status(401).json({
-      message: "Failed Signing Up",
-    })
-  }).catch((err) => {
     res.status(401).json({
       message: "Failed Signing Up",
     })
@@ -39,14 +35,21 @@ router.post('/signup', (req,res,next) => {
 })
 
 router.post('/login', (req,res,next) => {
-  User.findOne({where : {
-    email: req.body.email,
-  }})
-    .then((user : User | null) => {
-      if (user)
-        return bcrypt.compare(req.body.password, user.senha)
+  User.findOne({
+    where : {
+      email: req.body.email,
+      }
     })
-    .then((passwordMatched?:boolean) => {
+    .then((user : User | null) => {
+      if (user) {
+        return bcrypt.compare(req.body.password, user.senha)
+      }
+      throw {
+        status: 404, 
+        message: "User Not Found"
+      }
+    })
+    .then((passwordMatched : boolean) => {
       if (!passwordMatched){
         return res.status(401).json({
           message : "Authentication failed.",
@@ -63,11 +66,14 @@ router.post('/login', (req,res,next) => {
         token: token,
         expiresIn: 3600000
       });
-    });
+    }, (reason) => {
+      return res.status(reason.status).json({
+        message: reason.message,
+      })
+    })
+    .catch((reason) => {
+      console.log(reason);
+    })
 });
-
-// let validated_users = [
-//   {email: 'tabaco@tbc.com', password:'$2b$10$9p4cZfvjNylvc9VOWkr87u2Qeq7DvgVwHQEsm/1v12eVve./9hdW.'}
-// ]
 
 export { router as usersRouter };
