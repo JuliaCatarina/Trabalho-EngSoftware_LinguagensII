@@ -25,4 +25,8 @@ export class TelaLoginComponent implements OnInit {
     this.authservice.login(form.value.email, form.value.password)
   }
 
+  routeCadastrar() {
+
+  }
+
 }

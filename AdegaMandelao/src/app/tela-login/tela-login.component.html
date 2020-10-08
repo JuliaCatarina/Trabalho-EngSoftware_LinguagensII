@@ -39,6 +39,9 @@
         <div class="row justify-content-center" id="bottom">
           <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
         </div>
+        <div class="row justify-content-center" id="bottom">
+          <a routerLink="/telaSignup" class="btn btn-primary" (click)="routeCadastrar()">Cadastrar</a>
+        </div>
       </form>
     </div>
     <div class="col-3">

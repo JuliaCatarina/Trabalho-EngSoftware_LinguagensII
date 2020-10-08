@@ -14,9 +14,23 @@ export class AuthService implements OnInit {
   }
 
   login(email:string, password:string){
-    this.http.post<{message:string, token:string}>('http://localhost:3000/api/users/login', {email, password}).subscribe((res) => {
+    this.http.post<{message:string, token:string}>
+    ('http://localhost:3000/api/users/login',
+    {email, password})
+    .subscribe((res) => {
       this.token = res.token;
       localStorage.setItem("token", this.token);
+    });
+  }
+
+  signup(nome:string, email:string, senha:string){
+    console.log("auth service signup");
+
+    this.http.post<{message:string}>
+    ('http://localhost:3000/api/users/signup',
+    {nome: nome, email: email, password: senha})
+    .subscribe((res) => {
+      console.log(res.message);
     });
   }
 

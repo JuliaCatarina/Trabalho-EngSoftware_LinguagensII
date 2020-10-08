@@ -22,6 +22,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ProdutosDashboardComponent } from './admin-dashboard/produtos-dashboard/produtos-dashboard.component';
 import { ProdutoDashboardCardComponent } from './admin-dashboard/produtos-dashboard/produto-dashboard-card/produto-dashboard-card.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { TelaSignupComponent } from './tela-signup/tela-signup.component';
 
 
 
@@ -42,7 +43,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     ProdutosComponent,
     AdminDashboardComponent,
     ProdutosDashboardComponent,
-    ProdutoDashboardCardComponent
+    ProdutoDashboardCardComponent,
+    TelaSignupComponent
   ],
   imports: [
     FormsModule,

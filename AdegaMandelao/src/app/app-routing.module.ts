@@ -4,12 +4,14 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ProdutosComponent } from './produtos/produtos.component';
 import { TelaInicialComponent } from './tela-inicial/tela-inicial.component';
 import { TelaLoginComponent } from './tela-login/tela-login.component';
+import { TelaSignupComponent } from './tela-signup/tela-signup.component';
 
 const routes: Routes = [
   {path: '', component: TelaInicialComponent},
   {path: 'telaLogin', component: TelaLoginComponent},
+  {path: 'telaSignup', component: TelaSignupComponent},
   {path: 'produtos', component: ProdutosComponent},
-  {path: 'dashboard', component: AdminDashboardComponent}
+  {path: 'dashboard', component: AdminDashboardComponent},
 ];
 
 @NgModule({
