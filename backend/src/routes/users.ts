@@ -22,6 +22,7 @@ router.post('/signup', (req,res,next) => {
     // guardar no banco de dado email + hash da senha
     res.status(201).json({
       message:"Usuario criado com successo",
+      statusCode: 201,
     })
   }, 
   //Hash error
@@ -30,6 +31,7 @@ router.post('/signup', (req,res,next) => {
 
     res.status(401).json({
       message: "Failed Signing Up",
+      statusCode: 401,
     })
   })
 })
@@ -53,6 +55,7 @@ router.post('/login', (req,res,next) => {
       if (!passwordMatched){
         return res.status(401).json({
           message : "Authentication failed.",
+          statusCode: 401,
         })
       }
 
@@ -64,11 +67,13 @@ router.post('/login', (req,res,next) => {
       return res.status(200).json({
         message:"Login com successo",
         token: token,
-        expiresIn: 3600000
+        expiresIn: 3600,
+        statusCode: 200,
       });
     }, (reason) => {
       return res.status(reason.status).json({
         message: reason.message,
+        statusCode: reason.status,
       })
     })
     .catch((reason) => {
