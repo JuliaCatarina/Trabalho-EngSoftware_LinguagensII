@@ -23,8 +23,12 @@ export class TelaLoginComponent implements OnInit {
   onSubmit(form : FormGroup) {
     console.log(form.value);
     this.authservice.login(form.value.email, form.value.password)
+    .subscribe(res=>{
+      alert(res.message)
+    }
+    )
   }
-
+  
   routeCadastrar() {
 
   }

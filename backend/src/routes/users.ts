@@ -44,16 +44,17 @@ router.post('/login', (req,res,next) => {
     })
     .then((user : User | null) => {
       if (user) {
-        return bcrypt.compare(req.body.password, user.senha)
+        return bcrypt.compare(req.body.password, user.senha);
       }
+      
       throw {
         status: 404, 
-        message: "User Not Found"
+        message: "User Not Found",
       }
     })
     .then((passwordMatched : boolean) => {
       if (!passwordMatched){
-        return res.status(401).json({
+        return res.status(200).json({
           message : "Authentication failed.",
           statusCode: 401,
         })
@@ -71,7 +72,7 @@ router.post('/login', (req,res,next) => {
         statusCode: 200,
       });
     }, (reason) => {
-      return res.status(reason.status).json({
+      return res.status(200).json({
         message: reason.message,
         statusCode: reason.status,
       })
