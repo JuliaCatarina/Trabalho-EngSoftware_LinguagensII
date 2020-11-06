@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
+import { CartServiceService } from 'src/app/cart-service.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,15 +9,21 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService, private cartService : CartServiceService ) { }
 
   ngOnInit(): void {
   }
 
   doLogout(){
-    this.authService.logout();
+    this.authService.logout()
   }
   loggedIn(){
     return this.authService.isLoggedIn()
+  }
+  notLoggedIn(){
+    return !this.authService.isLoggedIn()
+  }
+  closeCart(){
+    return
   }
 }

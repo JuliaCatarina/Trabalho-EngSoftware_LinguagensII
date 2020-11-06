@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CartItem } from 'src/app/cart-item-model';
+
 
 @Component({
   selector: 'app-cart-item',
@@ -9,8 +11,10 @@ export class CartItemComponent implements OnInit {
 
   constructor() { }
 
-  price:number = 50
-  nome:string = "Doge de óculos. wow."
+  @Input()
+  cartItem : CartItem;
+  
+
 
   ngOnInit(): void {
   }

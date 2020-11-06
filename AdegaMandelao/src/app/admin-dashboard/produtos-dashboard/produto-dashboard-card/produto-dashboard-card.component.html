@@ -1,21 +1,21 @@
 <div class="card-body">
     <div class="row no-gutters">
-        <div class="col-md-2 d-flex my-auto">
-            <img [src]="dogeProduto.foto" alt="" id="cardImageSize">
+        <div class="col-md-2 d-center my-auto">
+            <img [src]="product.foto" alt="" id="cardImageSize">
         </div>
-        <div class="col-md-2 my-auto">
-            <h5 class="card-title">{{dogeProduto.nome}}</h5>
+        <div class="col-md-2 d-center my-auto">
+            <h5 class="card-title">{{product.nome}}</h5>
         </div>
-        <div class="col-md-2 my-auto">
-            <p class="card-text">{{ dogeProduto.preco | currency:'BRL' }}</p>
+        <div class="col-md-2 d-center my-auto">
+            <p class="card-text">{{ product.preco | currency:'BRL' }}</p>
         </div>
-        <div class="col-md-2 my-auto">
-            <p class="card-text">{{dogeProduto.quantidade}}</p>
+        <div class="col-md-2 d-center my-auto">
+            <p class="card-text">{{product.quantidade}}</p>
         </div>
-        <div class="col-md-2 my-auto">
-            <p class="card-text">{{dogeProduto.vendido}}</p>
+        <div class="col-md-2 d-center my-auto">
+            <p class="card-text">{{product.vendido}}</p>
         </div>
-        <div class="col-md-2 my-auto">
+        <div class="col-md-2 d-center my-auto">
             <a href="#" class="btn btn-primary">Ir para Página do produto</a>
         </div>
     </div>

@@ -1,27 +1,27 @@
-<div class="card text-center">
-    <div class="card-header">
-        <ul class="nav nav-pills card-header-pills">
-                <li class="nav-item d-flex col-md-2">
-                    <a class="nav-link " href="#">Foto</a>
-                </li>
-                <li class="nav-item d-flex col-md-2">
-                    <a class="nav-link " href="#">Nome</a>
-                </li>
-                <li class="nav-item d-flex col-md-2">
-                    <a class="nav-link " href="#">Preço</a>
-                </li>
-                <li class="nav-item d-flex col-md-2">
-                    <a class="nav-link " href="#">Qnt</a>
-                </li>
-                <li class="nav-item d-flex col-md-2">
-                    <a class="nav-link " href="#">Vnd</a>
-                </li>
-                <li class="nav-item d-flex col-md-2">
-                    <a class="nav-link " href="#">Página</a>
-                </li>
-        </ul>
+<div class="card">
+    <div class="">
+        <div class="nav nav-pills card-header-pills">
+                <div class="nav-item d-center col-md-2">
+                    <a class="nav-link ">Foto</a>
+                </div>
+                <div class="nav-item d-center col-md-2">
+                    <a class="nav-link ">Nome</a>
+                </div>
+                <div class="nav-item d-center col-md-2">
+                    <a class="nav-link ">Preço</a>
+                </div>
+                <div class="nav-item d-center col-md-2">
+                    <a class="nav-link ">Qnt</a>
+                </div>
+                <div class="nav-item d-center col-md-2">
+                    <a class="nav-link ">Vnd</a>
+                </div>
+                <div class="nav-item d-center col-md-2">
+                    <a class="nav-link ">Página</a>
+                </div>
+            </div>
     </div>
-    <div class="card-body" *ngFor="let i of [1,2,3]">
-        <app-produto-dashboard-card></app-produto-dashboard-card>
+    <div class="card-body" *ngFor="let i of products">
+        <app-produto-dashboard-card [product]="i"></app-produto-dashboard-card>
     </div>
 </div>

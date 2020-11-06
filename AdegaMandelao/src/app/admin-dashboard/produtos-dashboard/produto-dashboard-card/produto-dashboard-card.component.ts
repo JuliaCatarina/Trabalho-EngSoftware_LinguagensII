@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Produto } from 'src/app/produto.model';
 
 @Component({
@@ -10,7 +10,9 @@ export class ProdutoDashboardCardComponent implements OnInit {
 
   constructor() { }
 
-  dogeProduto = new Produto("1",50,"Doge de óculos. wow.","Doge","assets/images/doge.png",20,553)
+
+  @Input()
+  product : Produto;
   
   ngOnInit(): void {
   }

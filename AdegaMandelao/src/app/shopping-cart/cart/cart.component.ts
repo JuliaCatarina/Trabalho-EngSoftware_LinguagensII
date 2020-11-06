@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CartItem } from 'src/app/cart-item-model';
 import { CartServiceService } from 'src/app/cart-service.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -9,9 +11,15 @@ import { CartServiceService } from 'src/app/cart-service.service';
 })
 export class CartComponent implements OnInit, OnDestroy {
 
-  private products = []
+  public products : CartItem[] = []
 
-  priceTotal: number = 50
+  getTotal(){
+    let sum:number = 0
+    this.products.forEach(prod=>{
+      sum+=prod.produto.preco * prod.unidade
+    })
+    return sum
+  }
 
   private cartSub : Subscription
 

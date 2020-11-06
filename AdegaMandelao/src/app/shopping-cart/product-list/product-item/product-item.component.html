@@ -1,14 +1,14 @@
 <div class="card mb-4 shadow-sm">
-    <img class="bd-placeholder-img card-img-top" width="100%" [src]="dogeProduto.foto">
+    <img class="bd-placeholder-img card-img-top" width="100%" [src]="product.foto">
     <div class="card-body">
         <p class="card-text">
-            <strong>{{ dogeProduto.preco | currency:'BRL' }}</strong>
+            <strong>{{ product.preco | currency:'BRL' }}</strong>
         </p>
-      <p class="card-text">{{dogeProduto.nome}}</p>
+      <p class="card-text">{{product.nome}}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-primary product-btn" (click)="addProduct()">Adicionar ao Carrinho</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary product-btn">Detalhes</button>
+          <button type="button" class="btn btn-sm btn-outline-primary product-btn" >Adicionar ao Carrinho</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary product-btn" routerLink="/produto">Detalhes</button>
         </div>
       </div>
     </div>
