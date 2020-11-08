@@ -24,6 +24,6 @@ export class NavComponent implements OnInit {
     return !this.authService.isLoggedIn()
   }
   closeCart(){
-    return
+    this.cartService.cleanCart()
   }
 }

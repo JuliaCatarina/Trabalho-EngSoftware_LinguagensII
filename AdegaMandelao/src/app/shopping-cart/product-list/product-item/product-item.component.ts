@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CartServiceService } from 'src/app/cart-service.service';
+import { Router } from '@angular/router';
+import { ProductServiceService } from 'src/app/product-service.service';
 import { Produto } from 'src/app/produto.model';
 
 @Component({
@@ -10,14 +11,18 @@ import { Produto } from 'src/app/produto.model';
 export class ProductItemComponent implements OnInit {
 
 
-  constructor(private cartService:CartServiceService) { }
+  constructor(private productService:ProductServiceService, private router:Router) { }
 
   @Input()
-  product : Produto;
+  produto : Produto;
+
+  routeProduto(){
+    this.router.navigateByUrl("/produto/"+this.produto._id);
+    }
   
-  //addProduct(){
-  //  this.cartService.postProduct(this.product);
-  //}
+  adicionarProduto(produto){
+    this.productService.addProduct(produto,1);
+  }
   
   ngOnInit(): void { 
   }

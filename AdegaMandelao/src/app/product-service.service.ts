@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Produto } from 'src/app/produto.model';
+import { CartServiceService } from 'src/app/cart-service.service';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,9 +41,31 @@ export class ProductServiceService {
     },
   ]
 
-  getProduct(){
-    return [...this.products]
+  getProducts(){
+    return [...this.products];
   }
 
-  constructor() { }
+
+  getProduct(id:string){
+    let prod = this.products.find(element=>{
+      return element._id === id;
+    })
+    if(prod){
+      return of(prod);
+    }
+    else{
+      return undefined;
+    }
+  }
+
+
+  constructor(private cartService:CartServiceService) { }
+
+  addProduct(produto:Produto,unidade:number){
+    this.cartService.postProduct(produto,unidade);
+  }
+
+  
+
+  
 }
