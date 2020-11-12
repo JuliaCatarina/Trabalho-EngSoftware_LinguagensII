@@ -1,0 +1,11 @@
+#botao{
+    size : 9px;
+    font-size: 8px;
+    padding : 6px;
+    margin: 3px;
+}
+
+.card-custom{
+    padding-left: 0;
+    padding-right: 0;
+}

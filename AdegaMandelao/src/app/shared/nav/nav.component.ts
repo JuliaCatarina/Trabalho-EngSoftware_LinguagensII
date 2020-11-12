@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { CartServiceService } from 'src/app/cart-service.service';
 
@@ -9,9 +10,26 @@ import { CartServiceService } from 'src/app/cart-service.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private authService : AuthService, private cartService : CartServiceService ) { }
+  constructor(private authService : AuthService, private cartService : CartServiceService, private router:Router ) { }
 
   ngOnInit(): void {
+  }
+
+
+  routeInicial(){
+    this.router.navigateByUrl("/produtos")
+  }
+  routeCerveja(){
+    this.router.navigateByUrl("/produtos?categoria=Cerveja")
+  }
+  routeVodka(){
+    this.router.navigateByUrl("/produtos?categoria=Vodka")
+  }
+  routeTequila(){
+    this.router.navigateByUrl("/produtos?categoria=Tequila")
+  }
+  routeOutro(){
+    this.router.navigateByUrl("/produtos?categoria=Outro")
   }
 
   doLogout(){
@@ -26,4 +44,5 @@ export class NavComponent implements OnInit {
   closeCart(){
     this.cartService.cleanCart()
   }
+  
 }

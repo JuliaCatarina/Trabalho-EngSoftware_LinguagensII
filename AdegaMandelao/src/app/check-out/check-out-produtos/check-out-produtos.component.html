@@ -1,0 +1,34 @@
+<div class="card">
+        <div class="nav nav-pills card-header-pills">
+                <div class="nav-item d-center col-md-2">
+                    <a class="nav-link card-custom">Foto</a>
+                </div>
+                <div class="nav-item d-center col-md-4 card-custom">
+                    <a class="nav-link card-custom">Nome</a>
+                </div>
+                <div class="nav-item d-center col-md-2 card-custom">
+                    <a class="nav-link card-custom">Preço</a>
+                </div>
+                <div class="nav-item d-center col-md-2 card-custom">
+                    <a class="nav-link card-custom">Preço Total</a>
+                </div>
+                <div class="nav-item d-center col-md-2 card-custom">
+                    <a class="nav-link card-custom">Quantidade</a>
+                </div>
+        </div>
+    <div class="card-body card-custom" *ngFor="let i of cartItems">
+        <app-check-out-produtos-card [cartItem]="i"></app-check-out-produtos-card>
+    </div>
+</div>
+<div class="row d-flex justify-content-end">
+    <div class="col">
+        <div class="row d-flex justify-content-end">
+            <strong>Total: {{ getTotal() | currency: 'BRL' }}</strong>
+        </div>
+        <div class="row d-flex justify-content-end">
+            <button class="btn btn-primary">
+                Finalizar Compra
+            </button>
+        </div>
+    </div>
+</div>

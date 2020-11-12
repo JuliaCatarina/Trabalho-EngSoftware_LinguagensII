@@ -1,3 +1,14 @@
 <div class="cart-item">
-    <span>{{cartItem.produto.nome}}</span> x <span> {{cartItem.unidade}}</span>: <strong>{{ cartItem.produto.preco*cartItem.unidade | currency:'BRL' }}</strong>
+    <span>
+        {{cartItem.produto.nome}} x
+    </span>
+    <span>
+        {{cartItem.unidade}} :
+    </span> 
+    <strong>
+        {{ cartItem.produto.preco*cartItem.unidade | currency:'BRL' }}
+    </strong> 
+    <button id="botao" type="button" (click)="eraseProduct()" class="btn btn-danger">
+        X
+    </button>
 </div>

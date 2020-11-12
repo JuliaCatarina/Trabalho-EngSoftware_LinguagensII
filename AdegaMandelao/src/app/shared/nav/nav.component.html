@@ -6,9 +6,10 @@
       <a class="p-2 text-dark alert-danger" *ngIf="loggedIn()" (click)="doLogout()" href="#">Logout</a>
       <a class="p-2 text-dark" *ngIf="loggedIn()" href="/dashboard">Dashboard</a>
       <a class="p-2 text-dark" *ngIf="notLoggedIn()" (click)="closeCart()" href="#">Fechar</a>
-      <a class="p-2 text-dark" href="#">Cervejas</a>
-      <a class="p-2 text-dark" href="#">Vodka</a>
-      <a class="p-2 text-dark" href="#">Tequilas</a>
-      <a class="p-2 text-dark" href="#">Outros</a>
+      <a class="p-2 text-dark" (click)="routeInicial()">Página Inicial</a>
+      <a class="p-2 text-dark" (click)="routeCerveja()">Cerveja</a>
+      <a class="p-2 text-dark" (click)="routeVodka()">Vodka</a>
+      <a class="p-2 text-dark" (click)="routeTequila()">Tequila</a>
+      <a class="p-2 text-dark" (click)="routeOutro()">Outros</a>
     </nav>
   </div>

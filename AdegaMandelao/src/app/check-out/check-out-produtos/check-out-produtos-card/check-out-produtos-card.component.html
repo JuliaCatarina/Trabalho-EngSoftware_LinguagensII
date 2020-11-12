@@ -1,0 +1,24 @@
+<div class="card-body card-custom">
+    <div class="row no-gutters">
+        <div class="col-md-2 d-center">
+            <img [src]="cartItem.produto.foto" alt="" id="cardImageSize">
+        </div>
+        <div class="col-md-4 ">
+            <h5 class="card-text">{{cartItem.produto.nome}}</h5>
+        </div>
+        <div class="col-md-2 ">
+            <p class="card-text">{{cartItem.produto.preco | currency:'BRL' }}</p>
+        </div>
+        <div class="col-md-2 ">
+            <p class="card-text">{{ getTotal() | currency:'BRL' }}</p>
+        </div>
+        <div class="col-md-1 d-flex justify-content-center">
+            <p class="card-text">{{cartItem.unidade}}</p>
+        </div>
+        <div class="col-md-1 d-flex justify-content-center">
+            <button id="botao" type="button" (click)="eraseProduct()" class="btn btn-danger">
+                X
+            </button>
+        </div>
+    </div>
+</div>

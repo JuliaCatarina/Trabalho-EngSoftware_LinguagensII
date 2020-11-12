@@ -10,17 +10,17 @@ export class ProductServiceService {
 
   public products : Produto[] = [
     {
-        _id : "1",
-        preco : 5,
-        nome : "a",
-        foto :  "foto",
-        descricao : "descricao",
-        quantidade : 3,
-        vendido : 4,
-        categoria : "Cerveja"
+      _id : "1",
+      preco : 5,
+      nome : "a",
+      foto :  "foto",
+      descricao : "descricao",
+      quantidade : 3,
+      vendido : 4,
+      categoria : "Cerveja"
     },
     {
-        _id : "2",
+      _id : "2",
       preco : 10,
       nome : "b",
       foto :  "foto",
@@ -38,6 +38,16 @@ export class ProductServiceService {
       quantidade : 0,
       vendido : 9,
       categoria : "Cerveja"
+    },
+    {
+      _id : "4",
+      preco : 40,
+      nome : "Vodka do Doge",
+      foto :  "foto",
+      descricao : "descricao",
+      quantidade : 41,
+      vendido : 2,
+      categoria : "Vodka"
     },
   ]
 

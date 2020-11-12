@@ -24,6 +24,9 @@ import { ProdutoDashboardCardComponent } from './admin-dashboard/produtos-dashbo
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { TelaSignupComponent } from './tela-signup/tela-signup.component';
 import { ProdutoComponent } from './produto/produto.component';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { CheckOutProdutosComponent } from './check-out/check-out-produtos/check-out-produtos.component';
+import { CheckOutProdutosCardComponent } from './check-out/check-out-produtos/check-out-produtos-card/check-out-produtos-card.component';
 
 
 
@@ -46,7 +49,10 @@ import { ProdutoComponent } from './produto/produto.component';
     ProdutosDashboardComponent,
     ProdutoDashboardCardComponent,
     TelaSignupComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    CheckOutComponent,
+    CheckOutProdutosComponent,
+    CheckOutProdutosCardComponent,
   ],
   imports: [
     FormsModule,
