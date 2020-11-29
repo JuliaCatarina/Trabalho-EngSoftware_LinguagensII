@@ -2,24 +2,26 @@
   <div class="row mt-1">
     <a class="btn btn-primary" routerLink="/produtos">Retornar</a>
   </div>
-    <div class="row align-items-center my-5">
-      <div class="col-lg-7">
-        <img class="img-fluid rounded mb-4 mb-lg-0" src="/assets/doge.jpg" alt="">
-      </div>
-      <!-- /.col-lg-8 -->
-      <div class="col-lg-5">
-        <h1>{{produto.nome}}</h1>
-        <h3>Preço: {{ produto.preco | currency: 'BRL'}}</h3>
-        <h5>Quantidade: <input type="number" #unidade class="form-control"> </h5> 
-        <a class="btn btn-primary" routerLink="/produtos" (click)="adicionarProduto(unidade.value)">Adicionar ao Carrinho</a>
-        <div class="card text-white bg-secondary my-5 py-4 text-center">
-          <div class="card-body">
-            <p class="text-white m-0">{{produto.descricao}}</p>
+    <form>
+      <div class="row align-items-center my-5">
+        <div class="col-lg-7">
+          <img class="img-fluid rounded mb-4 mb-lg-0" src="/assets/doge.jpg" alt="">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-5">
+          <h1>{{produto.nome}}</h1>
+          <h3>Preço: {{ produto.preco | currency: 'BRL'}}</h3>
+          <h5>Quantidade: <input type="number" #unidade class="form-control"> </h5>
+          <a class="btn btn-primary" routerLink="/produtos" (click)="adicionarProduto(unidade.value)">Adicionar ao Carrinho</a>
+          <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body">
+              <p class="text-white m-0">{{produto.descricao}}</p>
+            </div>
           </div>
         </div>
+        <!-- /.col-md-4 -->
       </div>
-      <!-- /.col-md-4 -->
-    </div>
+    </form>
     <!-- /.row -->
     <footer class="py-5 bg-dark">
         <div class="container">

@@ -24,7 +24,7 @@ router.post('/signup', (req,res,next) => {
       message:"Usuario criado com successo",
       statusCode: 201,
     })
-  }, 
+  },
   //Hash error
   (reason) => {
     console.log(reason); 

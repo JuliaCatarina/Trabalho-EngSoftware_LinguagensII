@@ -8,15 +8,15 @@
         <form>
             <div class="form-group">
                 <label for="mínimo">Mínimo</label>
-                <input type="number" id="mínimo" class="form-control">
+                <input type="number" id="mínimo" class="form-control" #minimum>
                 </div>
 
                 <div class="form-group">
                     <label for="máximo">Máximo</label>
-                    <input type="number" id="máximo" class="form-control">
+                    <input type="number" id="máximo" class="form-control" #maximum>
                 </div>
 
-                <button class="btn btn-primary btn-block btn-sm">Filtrar por Preço</button>
+                <button class="btn btn-primary btn-block btn-sm" (click)="filterByPrice(minimum.value,maximum.value)">Filtrar por Preço</button>
         </form>
     </div>
 </div>

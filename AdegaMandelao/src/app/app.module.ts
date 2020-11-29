@@ -27,6 +27,7 @@ import { ProdutoComponent } from './produto/produto.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { CheckOutProdutosComponent } from './check-out/check-out-produtos/check-out-produtos.component';
 import { CheckOutProdutosCardComponent } from './check-out/check-out-produtos/check-out-produtos-card/check-out-produtos-card.component';
+import { CriacaoDeProdutoComponent } from './criacao-de-produto/criacao-de-produto.component';
 
 
 
@@ -53,6 +54,7 @@ import { CheckOutProdutosCardComponent } from './check-out/check-out-produtos/ch
     CheckOutComponent,
     CheckOutProdutosComponent,
     CheckOutProdutosCardComponent,
+    CriacaoDeProdutoComponent,
   ],
   imports: [
     FormsModule,

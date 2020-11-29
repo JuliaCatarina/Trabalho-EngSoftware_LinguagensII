@@ -2,6 +2,7 @@ import express from 'express';
 import bodyparser from 'body-parser';
 
 import { usersRouter } from './routes/users'
+import { produtosRoutes } from './routes/produtos.routes';
 
 const app = express();
 
@@ -23,5 +24,6 @@ app.use((req,res,next) => {
 
 
 app.use('/api/users', usersRouter);
+app.use('/api/produtos', produtosRoutes);
 
 export { app };

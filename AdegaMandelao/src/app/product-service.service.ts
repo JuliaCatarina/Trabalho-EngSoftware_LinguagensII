@@ -1,13 +1,15 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Produto } from 'src/app/produto.model';
 import { CartServiceService } from 'src/app/cart-service.service';
-import { of } from 'rxjs';
+import { of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
+  private productUpdated = new Subject<Produto[]>();
+  
   public products : Produto[] = [
     {
       _id : "1",
@@ -49,12 +51,44 @@ export class ProductServiceService {
       vendido : 2,
       categoria : "Vodka"
     },
+    {
+      _id : "5",
+      preco : 60,
+      nome : "Tequila do Doge",
+      foto :  "foto",
+      descricao : "descricao",
+      quantidade : 32,
+      vendido : 5,
+      categoria : "Tequila"
+    },
+    {
+      _id : "6",
+      preco : 2,
+      nome : "Água do Doge",
+      foto :  "foto",
+      descricao : "descricao",
+      quantidade : 1000,
+      vendido : 560,
+      categoria : "Outro"
+    },
   ]
+
+  updateProducts(produtos){
+    this.productUpdated.next(produtos);
+    this.products = [...produtos];
+  }
+
+  getProductsUpdateListener(){
+    return this.productUpdated.asObservable();
+  }
 
   getProducts(){
     return [...this.products];
   }
 
+  getProductsAsListener(){
+    return this.productUpdated.asObservable();
+  }
 
   getProduct(id:string){
     let prod = this.products.find(element=>{
