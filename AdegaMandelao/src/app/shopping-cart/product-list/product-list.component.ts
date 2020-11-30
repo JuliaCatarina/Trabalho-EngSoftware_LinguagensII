@@ -20,13 +20,16 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(param=>{
+
       if(param.categoria){
-        this.products = this.productService.getProducts().filter( prod => {
-          return prod.categoria === param.categoria // extraido da url
+        this.products = this.productService.getToFilterProducts().filter( prod => {
+          console.log(prod.categoria_id)
+          console.log(param.categoria)
+          return +prod.categoria_id === +param.categoria // extraido da url
       });
      }
       else {
-        this.products = this.productService.getProducts()
+        this.products = this.productService.getToFilterProducts()
       }
     })
 

@@ -1,7 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Produto } from 'src/app/produto.model';
 import { CartServiceService } from 'src/app/cart-service.service';
-import { of, Subject } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { of, Subject, Subscription } from 'rxjs';
+import { map } from "rxjs/operators";
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,69 +12,44 @@ import { of, Subject } from 'rxjs';
 export class ProductServiceService {
 
   private productUpdated = new Subject<Produto[]>();
-  
-  public products : Produto[] = [
-    {
-      _id : "1",
-      preco : 5,
-      nome : "a",
-      foto :  "foto",
-      descricao : "descricao",
-      quantidade : 3,
-      vendido : 4,
-      categoria : "Cerveja"
-    },
-    {
-      _id : "2",
-      preco : 10,
-      nome : "b",
-      foto :  "foto",
-      descricao : "descricao",
-      quantidade : 5,
-      vendido : 7,
-      categoria : "Cerveja"
-    },
-    {
-      _id : "3",
-      preco : 15,
-      nome : "c",
-      foto :  "foto",
-      descricao : "descricao",
-      quantidade : 0,
-      vendido : 9,
-      categoria : "Cerveja"
-    },
-    {
-      _id : "4",
-      preco : 40,
-      nome : "Vodka do Doge",
-      foto :  "foto",
-      descricao : "descricao",
-      quantidade : 41,
-      vendido : 2,
-      categoria : "Vodka"
-    },
-    {
-      _id : "5",
-      preco : 60,
-      nome : "Tequila do Doge",
-      foto :  "foto",
-      descricao : "descricao",
-      quantidade : 32,
-      vendido : 5,
-      categoria : "Tequila"
-    },
-    {
-      _id : "6",
-      preco : 2,
-      nome : "Água do Doge",
-      foto :  "foto",
-      descricao : "descricao",
-      quantidade : 1000,
-      vendido : 560,
-      categoria : "Outro"
-    },
-  ]
+
+  public products : Produto[] = [];
+
+
+  getProducts() {
+    this.http
+      .get<{ meta: {statusCode : number, message : string}, content: {produtos} }>("http://localhost:3000/api/produtos")
+      .pipe(
+        map(postData => {
+          return postData.content.produtos.map(product => {
+            return {
+              _id: product.id,
+              preco: product.preco,
+              nome: product.nome,
+              descricao: product.descricao,
+              foto: product.foto,
+              quantidade: product.quantidade,
+              vendido: product.vendido,
+              categoria_id: product.categoria_id,
+            };
+          });
+        })
+      )
+      .subscribe(transformedPosts => {
+        this.products = transformedPosts;
+        console.log(transformedPosts);
+        this.productUpdated.next([...this.products])
+      });
+  }
+
+  getProdutoById(id){
+    return this.http.get<{ meta: {statusCode : number, message : string}, content: {produto} }>("http://localhost:3000/api/produtos/"+id);
+  }
+
+  deleteProdutoById(id){
+    this.http.delete("http://localhost:3000/api/produtos/"+id).subscribe(
+      (res)=>{console.log(res)});
+  }
 
   updateProducts(produtos){
     this.productUpdated.next(produtos);
@@ -82,16 +60,13 @@ export class ProductServiceService {
     return this.productUpdated.asObservable();
   }
 
-  getProducts(){
-    return [...this.products];
-  }
-
   getProductsAsListener(){
     return this.productUpdated.asObservable();
   }
 
   getProduct(id:string){
     let prod = this.products.find(element=>{
+      console.log(prod)
       return element._id === id;
     })
     if(prod){
@@ -102,14 +77,16 @@ export class ProductServiceService {
     }
   }
 
+  getToFilterProducts(){
+    return this.products
+  }
 
-  constructor(private cartService:CartServiceService) { }
+  constructor(private http: HttpClient, private cartService:CartServiceService) {
+    this.getProducts()
+  }
 
   addProduct(produto:Produto,unidade:number){
     this.cartService.postProduct(produto,unidade);
   }
 
-  
-
-  
 }

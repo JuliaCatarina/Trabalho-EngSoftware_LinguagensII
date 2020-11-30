@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row mt-1">
     <a class="btn btn-primary" routerLink="/produtos">Retornar</a>
+    <button class="btn btn-danger ml-3" routerLink="/produtos" (click)="excluirProduto()" *ngIf="loggedIn()">excluir produto</button>
   </div>
+
     <form>
-      <div class="row align-items-center my-5">
+      <div class="row align-items-center my-5" *ngIf="!isLoading">
         <div class="col-lg-7">
           <img class="img-fluid rounded mb-4 mb-lg-0" src="/assets/doge.jpg" alt="">
         </div>

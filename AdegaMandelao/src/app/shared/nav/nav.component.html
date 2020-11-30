@@ -3,13 +3,14 @@
    <app-header></app-header>
    </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark alert-danger" *ngIf="loggedIn()" (click)="doLogout()" href="#">Logout</a>
-      <a class="p-2 text-dark" *ngIf="loggedIn()" href="/dashboard">Dashboard</a>
-      <a class="p-2 text-dark" *ngIf="notLoggedIn()" (click)="closeCart()" href="#">Fechar</a>
-      <a class="p-2 text-dark" (click)="routeInicial()">Página Inicial</a>
-      <a class="p-2 text-dark" (click)="routeCerveja()">Cerveja</a>
-      <a class="p-2 text-dark" (click)="routeVodka()">Vodka</a>
-      <a class="p-2 text-dark" (click)="routeTequila()">Tequila</a>
-      <a class="p-2 text-dark" (click)="routeOutro()">Outros</a>
+      <button class="p-2 btn btn-danger" *ngIf="loggedIn()" (click)="doLogout()">Logout</button>
+      <button class="p-2 btn btn-primary ml-2" *ngIf="loggedIn()" routerLink="/prodCriacao">Criar Produto</button>
+      <button class="p-2 btn btn-primary ml-2" *ngIf="loggedIn()" routerLink="/dashboard">Dashboard</button>
+      <button class="p-2 btn btn-primary ml-2" *ngIf="notLoggedIn()" (click)="closeCart()" routerLink="/">Fechar</button>
+      <button class="p-2 btn btn-primary ml-2" (click)="routeInicial()">Página Inicial</button>
+      <button class="p-2 btn btn-primary ml-2" (click)="routeCerveja()">Cerveja</button>
+      <button class="p-2 btn btn-primary ml-2" (click)="routeVodka()">Vodka</button>
+      <button class="p-2 btn btn-primary ml-2" (click)="routeTequila()">Tequila</button>
+      <button class="p-2 btn btn-primary ml-2" (click)="routeOutro()">Outros</button>
     </nav>
   </div>

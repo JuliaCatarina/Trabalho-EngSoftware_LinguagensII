@@ -10,11 +10,11 @@
           </div>
           <div class="row mt-3">
             <div class="row custom-file">
-              <input formControlName="foto" type="file" class="custom-file-input" required id="customFile" (change)="onFileSelected($event)">
+              <input type="file" class="custom-file-input" required id="customFile" (change)="onFileSelected($event)">
               <label class="custom-file-label" for="customFile">Escolha a foto</label>
             </div>
             <div class="row mt-3">
-              <select formControlName="categoria" class="form-control form-control-sm" name="categoria" required>
+              <select formControlName="categoria_id" class="form-control form-control-sm" name="categoria" required>
                 <option>Selecione a Categoria</option>
                 <option value="1">outro</option>
                 <option value="2">cerveja</option>
@@ -43,7 +43,7 @@
           <div>
             <h5>Quantidade no estoque: <input formControlName="quantidade" required type="number" name="quantidade" class="form-control"> </h5>
           </div>
-          <button type="button" class="btn btn-primary" (click)="handleNewProduto()" >Adicionar Produto</button>
+          <button type="button" class="btn btn-primary" routerLink="/produtos" (click)="handleNewProduto()" >Adicionar Produto</button>
           <div class="card text-white bg-secondary my-5 py-4 text-center">
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Descrição</label>

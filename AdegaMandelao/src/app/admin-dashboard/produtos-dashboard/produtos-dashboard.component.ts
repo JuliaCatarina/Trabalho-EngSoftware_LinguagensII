@@ -15,7 +15,7 @@ export class ProdutosDashboardComponent implements OnInit {
   constructor(private productService:ProductServiceService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.products = this.productService.getToFilterProducts();
   }
 
 }

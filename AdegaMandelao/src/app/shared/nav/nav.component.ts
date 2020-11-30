@@ -20,16 +20,16 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl("/produtos")
   }
   routeCerveja(){
-    this.router.navigateByUrl("/produtos?categoria=Cerveja")
+    this.router.navigateByUrl("/produtos?categoria=2")
   }
   routeVodka(){
-    this.router.navigateByUrl("/produtos?categoria=Vodka")
+    this.router.navigateByUrl("/produtos?categoria=4")
   }
   routeTequila(){
-    this.router.navigateByUrl("/produtos?categoria=Tequila")
+    this.router.navigateByUrl("/produtos?categoria=5")
   }
   routeOutro(){
-    this.router.navigateByUrl("/produtos?categoria=Outro")
+    this.router.navigateByUrl("/produtos?categoria=1")
   }
 
   doLogout(){
@@ -44,5 +44,5 @@ export class NavComponent implements OnInit {
   closeCart(){
     this.cartService.cleanCart()
   }
-  
+
 }

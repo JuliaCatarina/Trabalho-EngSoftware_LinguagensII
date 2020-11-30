@@ -20,11 +20,11 @@ export class FiltersComponent implements OnInit {
   maximum : number = 20;
 
   filterByPrice(minimum,maximum){
-    let products = this.productService.getProducts().filter(prods=>{
-      if(prods.preco>= minimum && prods.preco <= maximum){
-        return prods
-      }
-    })
-    this.productService.updateProducts(products);
+//    let products = this.productService.getProducts().filter(prods=>{
+//      if(prods.preco>= minimum && prods.preco <= maximum){
+//        return prods
+//      }
+//    })
+//    this.productService.updateProducts(products);
   }
 }

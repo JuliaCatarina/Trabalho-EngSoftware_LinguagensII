@@ -6,10 +6,12 @@ export class Produto{
     foto:string;
     quantidade:number;
     vendido:number;
-    categoria:string;
+    categoria_id:string;
+    createdAt:string;
+    updatedAt:string;
 
 
-    constructor(_id, preco, nome, descricao, foto, quantidade, vendido, categoria){
+    constructor(_id, preco, nome, descricao, foto, quantidade, vendido, categoria_id, createdAt, updatedAt){
         this._id = _id;
         this.preco = preco;
         this.nome = nome;
@@ -17,6 +19,8 @@ export class Produto{
         this.foto =  foto;
         this.quantidade = quantidade;
         this.vendido = vendido;
-        this.categoria = categoria;
+        this.categoria_id = categoria_id;
+        this.createdAt = createdAt
+        this.updatedAt = updatedAt
     }
 }

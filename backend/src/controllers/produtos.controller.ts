@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { Produto } from "../models/produto.model"
-import bcrypt from 'bcrypt';
-import { fileURLToPath } from "url";
+
 
 export const getAllProdutos = (req: Request, res: Response, next: NextFunction) => {
     Produto.findAll().then(produtos=>{
@@ -16,6 +15,7 @@ export const getAllProdutos = (req: Request, res: Response, next: NextFunction) 
         })
     })
 }
+
 export const getProduto = (req: Request, res: Response, next: NextFunction) => {
     Produto.findByPk(+req.params.id).then(produto=>{
         if(produto){
@@ -50,9 +50,8 @@ export const getProduto = (req: Request, res: Response, next: NextFunction) => {
     })
 }
 export const postProduto = (req: Request, res: Response, next: NextFunction) => {
-
+    console.log(req.body.foto)
     const produto : Produto = req.body;
-    console.log(produto);
     Produto.create(produto,
     {
         fields: ["preco", "descricao", "nome", "foto", "quantidade", "categoria_id"]
@@ -104,7 +103,7 @@ export const putProduto = (req: Request, res: Response, next: NextFunction) => {
 export const deleteProduto = (req: Request, res: Response, next: NextFunction) => {
         Produto.destroy({where:{
             id : +req.params.id
-    }}).then(produto=>{
+    }}).then((produto)=>{
         if (produto){
             return res.status(200).json({
                 meta:{
@@ -123,6 +122,15 @@ export const deleteProduto = (req: Request, res: Response, next: NextFunction) =
                 produto : "Product is with something wrong.",
             })
         }
-    })
+    }, reason => {
+        return res.status(400).json({
+            meta:{
+                statusCode:400,
+                message: "Error",
+                reason
+            }
+        })
+    }
+    )
     //delete
 }
