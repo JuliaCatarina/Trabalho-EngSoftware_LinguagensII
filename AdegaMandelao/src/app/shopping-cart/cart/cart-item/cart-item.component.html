@@ -4,11 +4,12 @@
     </span>
     <span>
         {{cartItem.unidade}} :
-    </span> 
+    </span>
     <strong>
         {{ cartItem.produto.preco*cartItem.unidade | currency:'BRL' }}
-    </strong> 
-    <button id="botao" type="button" (click)="eraseProduct()" class="btn btn-danger">
-        X
+    </strong>
+    <button id="botao" type="button"  class="btn btn-danger" (click)="eraseProduct()">
+      <i-bs name="cart-dash" width="1rem" height="1rem" ></i-bs>
     </button>
+
 </div>

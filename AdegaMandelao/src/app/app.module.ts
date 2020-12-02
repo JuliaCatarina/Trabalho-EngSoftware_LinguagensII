@@ -12,7 +12,6 @@ import { NavComponent } from './shared/nav/nav.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { FiltersComponent } from './shopping-cart/filters/filters.component';
 import { ProductListComponent } from './shopping-cart/product-list/product-list.component';
 import { CartComponent } from './shopping-cart/cart/cart.component';
 import { CartItemComponent } from './shopping-cart/cart/cart-item/cart-item.component';
@@ -28,8 +27,13 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { CheckOutProdutosComponent } from './check-out/check-out-produtos/check-out-produtos.component';
 import { CheckOutProdutosCardComponent } from './check-out/check-out-produtos/check-out-produtos-card/check-out-produtos-card.component';
 import { CriacaoDeProdutoComponent } from './criacao-de-produto/criacao-de-produto.component';
+import { NgxBootstrapIconsModule, CartPlus, ThreeDots, CartDash } from 'ngx-bootstrap-icons';
 
-
+const icons = {
+  CartPlus,
+  ThreeDots,
+  CartDash,
+}
 
 @NgModule({
   declarations: [
@@ -40,7 +44,6 @@ import { CriacaoDeProdutoComponent } from './criacao-de-produto/criacao-de-produ
     HeaderComponent,
     FooterComponent,
     ShoppingCartComponent,
-    FiltersComponent,
     ProductListComponent,
     CartComponent,
     CartItemComponent,
@@ -61,7 +64,8 @@ import { CriacaoDeProdutoComponent } from './criacao-de-produto/criacao-de-produ
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxBootstrapIconsModule.pick(icons)
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

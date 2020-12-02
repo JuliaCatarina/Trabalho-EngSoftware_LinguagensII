@@ -28,9 +28,6 @@ export class TelaLoginComponent implements OnInit {
     }
     )
   }
-  
-  routeCadastrar() {
 
-  }
 
 }

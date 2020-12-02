@@ -15,22 +15,20 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  routeInicial(){
-    this.router.navigateByUrl("/produtos")
-  }
-  routeCerveja(){
-    this.router.navigateByUrl("/produtos?categoria=2")
-  }
-  routeVodka(){
-    this.router.navigateByUrl("/produtos?categoria=4")
-  }
-  routeTequila(){
-    this.router.navigateByUrl("/produtos?categoria=5")
-  }
-  routeOutro(){
-    this.router.navigateByUrl("/produtos?categoria=1")
-  }
+  // Routings
+  routeInicial(){this.router.navigateByUrl("/produtos")}
+  routeOutro(){this.router.navigateByUrl("/produtos?categoria=1")}
+  routeCerveja(){this.router.navigateByUrl("/produtos?categoria=2")}
+  routeVodka(){this.router.navigateByUrl("/produtos?categoria=4")}
+  routeTequila(){this.router.navigateByUrl("/produtos?categoria=5")}
+  routeGim(){this.router.navigateByUrl("/produtos?categoria=6")}
+  routeWhisky(){this.router.navigateByUrl("/produtos?categoria=7")}
+  routeVinho(){this.router.navigateByUrl("/produtos?categoria=8")}
+  routeCachaca(){this.router.navigateByUrl("/produtos?categoria=9")}
+  routeRum(){this.router.navigateByUrl("/produtos?categoria=10")}
+  routeChampanhe(){this.router.navigateByUrl("/produtos?categoria=11")}
+  routeLicor(){this.router.navigateByUrl("/produtos?categoria=12")}
+  routeChopp(){this.router.navigateByUrl("/produtos?categoria=13")}
 
   doLogout(){
     this.authService.logout()

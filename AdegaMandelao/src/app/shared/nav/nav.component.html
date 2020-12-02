@@ -3,14 +3,22 @@
    <app-header></app-header>
    </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <button class="p-2 btn btn-danger" *ngIf="loggedIn()" (click)="doLogout()">Logout</button>
-      <button class="p-2 btn btn-primary ml-2" *ngIf="loggedIn()" routerLink="/prodCriacao">Criar Produto</button>
-      <button class="p-2 btn btn-primary ml-2" *ngIf="loggedIn()" routerLink="/dashboard">Dashboard</button>
-      <button class="p-2 btn btn-primary ml-2" *ngIf="notLoggedIn()" (click)="closeCart()" routerLink="/">Fechar</button>
-      <button class="p-2 btn btn-primary ml-2" (click)="routeInicial()">Página Inicial</button>
-      <button class="p-2 btn btn-primary ml-2" (click)="routeCerveja()">Cerveja</button>
-      <button class="p-2 btn btn-primary ml-2" (click)="routeVodka()">Vodka</button>
-      <button class="p-2 btn btn-primary ml-2" (click)="routeTequila()">Tequila</button>
-      <button class="p-2 btn btn-primary ml-2" (click)="routeOutro()">Outros</button>
+      <button class="p-2 btn btn-danger ml-2 mt-1" *ngIf="loggedIn()" (click)="doLogout()">Logout</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" *ngIf="loggedIn()" routerLink="/prodCriacao">Criar Produto</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" *ngIf="loggedIn()" routerLink="/dashboard">Dashboard</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" *ngIf="notLoggedIn()" (click)="closeCart()" routerLink="/">Fechar</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeInicial()">Página Inicial</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeCerveja()">Cerveja</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeVodka()">Vodka</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeTequila()">Tequila</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeGim()">Gim</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeWhisky()">Whisky</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeVinho()">Vinho</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeCachaca()">Cachaça</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeRum()">Rum</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeChampanhe()">Champanhe</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeLicor()">Licor</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeChopp()">Chopp</button>
+      <button class="p-2 btn btn-primary ml-2 mt-1" (click)="routeOutro()">Outros</button>
     </nav>
   </div>

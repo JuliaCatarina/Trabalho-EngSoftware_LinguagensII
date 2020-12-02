@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Produto } from 'src/app/produto.model';
 
 @Component({
@@ -8,12 +9,15 @@ import { Produto } from 'src/app/produto.model';
 })
 export class ProdutoDashboardCardComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router:Router) { }
 
+  irParaProduto(){
+    this.router.navigateByUrl("/produto/"+this.product._id);
+  }
 
   @Input()
   product : Produto;
-  
+
   ngOnInit(): void {
   }
 
